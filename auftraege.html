@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aufträge</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Aufträge für <span id="customerName"></span></h1>
+        <a href="kundenuebersicht.html">Zurück zur Kundenübersicht</a>
+    </header>
+
+    <section id="orderSection">
+        <form id="orderForm">
+            <label for="state">Bundesland:</label>
+            <select id="state" name="state" required>
+                <option value="NI">Niedersachsen (NI)</option>
+                <option value="NRW">Nordrhein-Westfalen (NRW)</option>
+            </select>
+
+            <label for="type">Anlage:</label>
+            <select id="type" name="type" required>
+                <option value="BK">Balkonkraftwerk (BK)</option>
+                <option value="WL">Wallbox (WL)</option>
+                <option value="PV">Photovoltaikanlagen (PV)</option>
+            </select>
+
+            <label for="orderDescription">Auftragsbeschreibung:</label>
+            <input type="text" id="orderDescription" name="orderDescription" required>
+
+            <label for="orderId">Auftrags-ID:</label>
+            <input type="text" id="orderId" name="orderId" readonly>
+
+            <button type="submit">Auftrag hinzufügen</button>
+        </form>
+
+        <table id="ordersTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Beschreibung</th>
+                    <th>Aktionen</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aufträge werden hier eingefügt -->
+            </tbody>
+        </table>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

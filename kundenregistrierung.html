@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kundenregistrierung</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Neuen Kunden registrieren</h1>
+        <a href="index.html">Zurück zur Startseite</a>
+    </header>
+
+    <section id="customerFormSection">
+        <form id="customerForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Telefon:</label>
+            <input type="text" id="phone" name="phone" required>
+
+            <button type="submit">Kunden registrieren</button>
+        </form>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
