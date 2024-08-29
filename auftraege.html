@@ -5,14 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aufträge</title>
     <link rel="stylesheet" href="style.css">
+    <script src="menu.js" defer></script>
 </head>
 <body>
+    
     <header>
-        <h1>Aufträge für <span id="customerName"></span></h1>
-        <a href="kundenuebersicht.html">Zurück zur Kundenübersicht</a>
+        <a href="index.html"><h2>Kundenverwaltungssystem</h2> </a>    
+        <button id="button">
+            <hr>
+            <hr>
+            <hr>
+        </button>
+        <ul id="links">
+            <li><a href="kundenuebersicht.html">Kundenübersicht </a></li>
+            <li><a href="kundenregistrierung.html">Neuen Kunden registrieren</a></li>
+            <li><a href="alleauftraege.html">Alle Aufträge anzeigen</a></li>
+        </ul>
+        
     </header>
 
     <section id="orderSection">
+        <h1>Neuen Aufrag für <span class="customerName"></span> erstellen</h1>
         <form id="orderForm">
             <label for="state">Bundesland:</label>
             <select id="state" name="state" required>
@@ -32,11 +45,12 @@
 
             <button type="submit">Auftrag hinzufügen</button>
         </form>
-
+        <h1>Aufträge von <span class="customerName"></span></h1>
         <table id="ordersTable">
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Anlage</th>
                     <th>Beschreibung</th>
                     <th>Aktionen</th>
                 </tr>

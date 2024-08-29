@@ -32,17 +32,24 @@ if (currentPage === "kundenuebersicht.html") {
 } else if (currentPage === "auftraege.html") {
     selectedCustomerId = localStorage.getItem('selectedCustomerId');
     let customer = customers[selectedCustomerId];
-    document.getElementById('customerName').innerText = customer.name;
+    let customerNames = document.getElementsByClassName("customerName")
+    for (let i = 0; i < customerNames.length; i++) {
+        customerNames[i].innerText = customer.name;
+    }
+    
+
     renderOrders();
 
     const orderForm = document.getElementById('orderForm');
-    const orderIdInput = document.getElementById('orderId');
+ 
 
     // Funktion zum Generieren der Auftrags-ID
     function generateOrderId(state, type, customerId) {
-        const year = new Date().getFullYear();
+        var year = new Date().getFullYear();
+        var month = new Date().getMonth() + 1
+        var day = new Date().getDate()
         const country = 'DE';
-        return `${year}-${state}-${type}-${customerId}-${country}`;
+        return `${year}-${month}-${day}-${state}-${type}-${customerId}-${country}`;
     }
 
     // Setze die generierte Auftrags-ID beim Absenden des Formulars
@@ -105,6 +112,17 @@ function deleteCustomer(index) {
     renderCustomers();
 }
 
+function test (orderid) {
+    switch (orderid.split('-')[4]) {
+        case "BK":
+            return "Balkonkraftwerk"
+        case "WL":
+            return  "Wallbox"
+        case "PV":
+            return "Photovoltaikanlage"
+    }
+}
+
 // Funktion zum Rendern der Aufträge für einen Kunden
 function renderOrders() {
     const ordersTable = document.getElementById('ordersTable').getElementsByTagName('tbody')[0];
@@ -113,9 +131,11 @@ function renderOrders() {
     customerOrders.forEach((order) => {
         let row = ordersTable.insertRow();
         row.insertCell(0).innerText = order.id;
-        console.log(order.id)
-        row.insertCell(1).innerText = order.description;
-        let actionsCell = row.insertCell(2);
+      
+        
+        row.insertCell(1).innerText = test(order.id);
+        row.insertCell(2).innerText = order.description;
+        let actionsCell = row.insertCell(3);
 
         let deleteBtn = document.createElement('button');
         deleteBtn.innerText = 'Löschen';

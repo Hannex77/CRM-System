@@ -11,34 +11,59 @@ body {
 }
 
 header {
-
+    display: block;
     background-color: #333;
     color: white;
-    width: 100%;
+    width: 100vw;
     padding: 0px;
-    text-align: center;
-
-
+    
 }
 
 h2 {
-    margin: 0;
-    padding: 20px 0;
+    margin: 3px 15px;
+    padding: 10px 0;
     display: inline-block;
 }
 
 button {
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: #007bff;
+   
+   
+    padding: 7px;
+    background-color: #308ef3;
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 30px;
+    margin: 0;
+    
+    border-radius: 10px;
+    
+}
+
+input {
+    height: 20px;
+    border-radius: 10px;
+    border: solid;
+    border-color: black;
+    padding: 0 6px;
+    border-width: 1px;
+}
+
+a {
+    color: white
+}
+
+table button {
+   
+    margin: 0 3px;
+}
+
+header button {
+    float: right;
+    margin: 10px 7px;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0265cf;
 }
 
 .hidden {
@@ -46,7 +71,7 @@ button:hover {
 }
 
 section {
-    margin-top: 20px;
+    margin: 10px 20px;
 }
 
 table {
@@ -77,6 +102,7 @@ input {
 }
 
 li a {
+    background-color: #999;
     display: block;
     color: white;
     text-align: center;
@@ -93,15 +119,22 @@ ul {
 }
 
 li a:hover {
-    background-color: #111;
+    background-color: #666;
 }
 
 #links {
-    transition: max-height 10s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: max-height 1s;
     max-height: 0;
     
 }
 
-#links_open {
-    
+
+
+hr {
+    border-radius: 10px;
+    margin: 3px 0;
+    width: 17px;
+    height: 2px;
+    border: none;
+    background-color: lightgray;
 }
