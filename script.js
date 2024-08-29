@@ -113,6 +113,7 @@ function renderOrders() {
     customerOrders.forEach((order) => {
         let row = ordersTable.insertRow();
         row.insertCell(0).innerText = order.id;
+        console.log(order.id)
         row.insertCell(1).innerText = order.description;
         let actionsCell = row.insertCell(2);
 

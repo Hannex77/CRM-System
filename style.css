@@ -1,19 +1,30 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     background-color: #f9f9f9;
 }
 
-header {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    text-align: center;
+* {
+    padding: 0;
+    margin: 0;
 }
 
-h1 {
+header {
+
+    background-color: #333;
+    color: white;
+    width: 100%;
+    padding: 0px;
+    text-align: center;
+
+
+}
+
+h2 {
     margin: 0;
+    padding: 20px 0;
+    display: inline-block;
 }
 
 button {
@@ -23,6 +34,7 @@ button {
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 30px;
 }
 
 button:hover {
@@ -43,7 +55,8 @@ table {
     margin-top: 10px;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: left;
@@ -58,6 +71,37 @@ form {
     flex-direction: column;
 }
 
-label, input {
+label,
+input {
     margin-bottom: 10px;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+#links {
+    transition: max-height 10s cubic-bezier(0.16, 1, 0.3, 1);
+    max-height: 0;
+    
+}
+
+#links_open {
+    
 }
