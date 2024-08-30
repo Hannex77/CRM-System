@@ -3,22 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kundenverwaltungssystem</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="menu.js" defer></script>
+    <title class="Kundenverwaltungssystem">Kundenverwaltungssystem</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/menu.js" defer></script>
+    <script src="js/lang.js" defer></script>
+    <script src="js/script.js" defer></script>
 </head>
 <body>
     <header>
-        <a href="index.html"><h2>Kundenverwaltungssystem</h2> </a>    
+        <a href="index.html"><h2 class="Kundenverwaltungssystem">Kundenverwaltungssystem</h2> </a>    
         <button id="button">
             <hr>
             <hr>
             <hr>
         </button>
         <ul id="links">
-            <li><a href="kundenuebersicht.html">Kundenübersicht </a></li>
-            <li><a href="kundenregistrierung.html">Neuen Kunden registrieren</a></li>
-            <li><a href="alleauftraege.html">Alle Aufträge anzeigen</a></li>
+            <li><a class="Kundenübersicht" href="kundenuebersicht.html">Kundenübersicht</a></li>
+            <li><a class="NeuenKundenregistrieren" href="kundenregistrierung.html">Neuen Kunden registrieren</a></li>
+            <li><a class="AlleAufträgeanzeigen" href="alleauftraege.html">Alle Aufträge anzeigen</a></li>
+            <li><a><select name="" id="englishorspanish">
+                <option value="de">Deutsch</option>
+                <option value="en">English</option>
+                <option value="es">Español</option>
+            </select></a></li>
         </ul>
         
     </header>

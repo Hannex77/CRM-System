@@ -7,7 +7,7 @@ button.addEventListener("click", function () {
         links.style.maxHeight = "0"
         menu_open = false
     } else {
-        links.style.maxHeight = "150px"
+        links.style.maxHeight = "200px"
         menu_open = true
     }
 })

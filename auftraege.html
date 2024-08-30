@@ -1,58 +1,75 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aufträge</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="menu.js" defer></script>
+    <title class="Aufträge">Aufträge</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/menu.js" defer></script>
+    <script src="js/lang.js" defer></script>
+    <script src="js/script.js" defer></script>
 </head>
+
 <body>
-    
+
     <header>
-        <a href="index.html"><h2>Kundenverwaltungssystem</h2> </a>    
+        <a href="index.html">
+            <h2 class="Kundenverwaltungssystem">Kundenverwaltungssystem</h2>
+        </a>
         <button id="button">
             <hr>
             <hr>
             <hr>
         </button>
         <ul id="links">
-            <li><a href="kundenuebersicht.html">Kundenübersicht </a></li>
-            <li><a href="kundenregistrierung.html">Neuen Kunden registrieren</a></li>
-            <li><a href="alleauftraege.html">Alle Aufträge anzeigen</a></li>
+            <li><a class="Kundenübersicht" href="kundenuebersicht.html">Kundenübersicht</a></li>
+            <li><a class="NeuenKundenregistrieren" href="kundenregistrierung.html">Neuen Kunden registrieren</a></li>
+            <li><a class="AlleAufträgeanzeigen" href="alleauftraege.html">Alle Aufträge anzeigen</a></li>
+            <li><a><select name="" id="englishorspanish">
+                        <option value="de">Deutsch</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select></a></li>
         </ul>
-        
+
     </header>
 
     <section id="orderSection">
-        <h1>Neuen Aufrag für <span class="customerName"></span> erstellen</h1>
+        <h1 class="NeuenAufragfür">Neuen Aufrag für</h1>
+        <h1> </h1>
+        <h1 class="customerName"></h1>
+        <h1> </h1>
+        <h1 class="erstellen">erstellen</h1>
         <form id="orderForm">
-            <label for="state">Bundesland:</label>
+            <label class="Bundesland" for="state">Bundesland</label>
             <select id="state" name="state" required>
-                <option value="NI">Niedersachsen (NI)</option>
-                <option value="NRW">Nordrhein-Westfalen (NRW)</option>
+                <option class="Niedersachsen(NI)" value="NI">Niedersachsen (NI)</option>
+                <option class="Nordrhein-Westfalen(NRW)" value="NRW">Nordrhein-Westfalen (NRW)</option>
             </select>
 
-            <label for="type">Anlage:</label>
+            <label class="Anlage" for="type">Anlage</label>
             <select id="type" name="type" required>
-                <option value="BK">Balkonkraftwerk (BK)</option>
-                <option value="WL">Wallbox (WL)</option>
-                <option value="PV">Photovoltaikanlagen (PV)</option>
+                <option class="Balkonkraftwerk(BK)" value="BK">Balkonkraftwerk (BK)</option>
+                <option class="Wallbox(WL)" value="WL">Wallbox (WL)</option>
+                <option class="Photovoltaikanlagen(PV)" value="PV">Photovoltaikanlagen (PV)</option>
             </select>
 
-            <label for="orderDescription">Auftragsbeschreibung:</label>
+            <label class="Auftragsbeschreibung" for="orderDescription">Auftragsbeschreibung</label>
             <input type="text" id="orderDescription" name="orderDescription" required>
 
-            <button type="submit">Auftrag hinzufügen</button>
+            <button class="Auftraghinzufügen" type="submit">Auftrag hinzufügen</button>
         </form>
-        <h1>Aufträge von <span class="customerName"></span></h1>
+        <h1 class="Aufträgevon">Aufträge von</h1>
+        <h1> </h1>
+        <h1 class="customerName"></h1>
         <table id="ordersTable">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Anlage</th>
-                    <th>Beschreibung</th>
-                    <th>Aktionen</th>
+                    <th class="ID">ID</th>
+                    <th class="Anlage">Anlage</th>
+                    <th class="Auftragsbeschreibung">Auftragsbeschreibung</th>
+                    <th class="Aktionen">Aktionen</th>
                 </tr>
             </thead>
             <tbody>
@@ -60,7 +77,6 @@
             </tbody>
         </table>
     </section>
-
-    <script src="script.js"></script>
 </body>
+
 </html>
