@@ -12,6 +12,7 @@ function setLanguage(lang) {
 }
 
 function updatelang() {
+    document.documentElement.lang = localStorage.getItem("language")
     if (localStorage.getItem("language") == "de") {
         if (document.getElementsByClassName("Kundenverwaltungssystem")[0].innerHTML != "Kundenverwaltungssystem") {
             window.location.reload()
