@@ -6,9 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="Aufträge">Aufträge</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/dates.js" defer></script>
     <script src="js/menu.js" defer></script>
     <script src="js/lang.js" defer></script>
     <script src="js/script.js" defer></script>
+    <script src="js/test.js" defer></script>
+   
 </head>
 
 <body>
@@ -58,6 +61,9 @@
             <label class="Auftragsbeschreibung" for="orderDescription">Auftragsbeschreibung</label>
             <input type="text" id="orderDescription" name="orderDescription" required>
 
+            <label class="Ablauftermin" for="orderDescription">Ablauftermin in ... Tagen</label>
+            <input value="14" type="number" id="Ablauftermin" name="Ablauftermin" required>
+
             <button class="Auftraghinzufügen" type="submit">Auftrag hinzufügen</button>
         </form>
         <h1 class="Aufträgevon">Aufträge von</h1>
@@ -69,6 +75,7 @@
                     <th class="ID">ID</th>
                     <th class="Anlage">Anlage</th>
                     <th class="Auftragsbeschreibung">Auftragsbeschreibung</th>
+                    <th class="">Ablauftermin</th>
                     <th class="Aktionen">Aktionen</th>
                 </tr>
             </thead>
@@ -77,6 +84,7 @@
             </tbody>
         </table>
     </section>
+    
 </body>
 
 </html>

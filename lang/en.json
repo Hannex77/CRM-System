@@ -8,10 +8,11 @@
     "Auftraghinzufügen": "Add contract",
     "Auftragsbeschreibung": "Order Description",
     "Aufträgevon": "contracts from",
+    "Balkonkraftwerk": "Balcony Power Plant",
     "Balkonkraftwerk(BK)": "Balcony Power Plant (BK)",
     "Bundesland": "Federal State",
     "Email": "Email",
-    "Fotovoltaikanlagen(PV)": "Photovoltaic Systems (PV)",
+    "Photovoltaikanlagen": "Photovoltaic Systems",
     "ID": "ID",
     "Kundenname": "Customer Name",
     "Kundenregistrierung": "Customer Registration",
@@ -27,5 +28,6 @@
     "Photovoltaikanlagen(PV)": "Photovoltaic Systems (PV)",
     "Telefon": "Phone",
     "Wallbox(WL)": "Wallbox (WL)",
+    "Wallbox": "Wallbox",
     "erstellen": ""
 }

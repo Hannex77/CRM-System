@@ -57,11 +57,14 @@ if (currentPage === "kundenuebersicht.html") {
         event.preventDefault();
         let state = document.getElementById('state').value;
         let type = document.getElementById('type').value;
-        let orderId = generateOrderId(state, type, selectedCustomerId);
+
+        let orderId = generateOrderId(state, type, selectedCustomerId, Ablauftermin);
         
         let newOrder = {
             id: orderId,
-            description: event.target.orderDescription.value
+            description: event.target.orderDescription.value,
+            date: new Date(),
+            ablauftermin: document.getElementById('Ablauftermin').value
         };
 
         if (!orders[selectedCustomerId]) {
@@ -117,11 +120,11 @@ function deleteCustomer(index) {
 function test (orderid) {
     switch (orderid.split('-')[4]) {
         case "BK":
-            return "Balkonkraftwerk"
+            return BK
         case "WL":
-            return  "Wallbox"
+            return  WL
         case "PV":
-            return "Photovoltaikanlage"
+            return PV
     }
 }
 
@@ -133,11 +136,12 @@ function renderOrders() {
     customerOrders.forEach((order) => {
         let row = ordersTable.insertRow();
         row.insertCell(0).innerText = order.id;
-      
-        
+        console.log(getDaysLeft(order))
+        console.log(order.ablauftermin)
         row.insertCell(1).innerText = test(order.id);
         row.insertCell(2).innerText = order.description;
-        let actionsCell = row.insertCell(3);
+        row.insertCell(3).innerText = getDaysLeft(order)
+        let actionsCell = row.insertCell(4);
 
         let deleteBtn = document.createElement('button');
         deleteBtn.classList.add("Löschen")
@@ -149,11 +153,12 @@ function renderOrders() {
 
 // Funktion zum Löschen eines Auftrags
 function deleteOrder(orderId) {
-    let customerOrders = orders[selectedCustomerId];
+    let customerOrders = orders[selectedCustomerId] || [];
     orders[selectedCustomerId] = customerOrders.filter(order => order.id !== orderId);
     saveData();
     renderOrders();
 }
+
 
 // Funktion zum Rendern aller Aufträge
 function renderAllOrders() {
@@ -167,7 +172,8 @@ function renderAllOrders() {
             row.insertCell(0).innerText = customer.name;
             row.insertCell(1).innerText = order.id;
             row.insertCell(2).innerText = order.description;
-            let actionsCell = row.insertCell(3);
+            row.insertCell(3).innerText = getDaysLeft(order)
+            let actionsCell = row.insertCell(4);
 
             let deleteBtn = document.createElement('button');
             deleteBtn.classList.add("Löschen")

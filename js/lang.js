@@ -1,3 +1,8 @@
+var datajson
+var BK = "Balkonkraftwerk"
+var WL = "Wallbox"
+var PV = "Photovoltaikanlage"
+
 if (!localStorage.getItem("language")) {
     localStorage.setItem("language", "de")
 }
@@ -12,7 +17,6 @@ function setLanguage(lang) {
 }
 
 function updatelang() {
-    document.documentElement.lang = localStorage.getItem("language")
     if (localStorage.getItem("language") == "de") {
         if (document.getElementsByClassName("Kundenverwaltungssystem")[0].innerHTML != "Kundenverwaltungssystem") {
             window.location.reload()
@@ -28,24 +32,45 @@ function updatelang() {
         })
         .then(data => {
             
+            datajson = data
+           
             for (const key in data) {
                 if (data.hasOwnProperty(key)) {
                     var test = document.getElementsByClassName(key)
                     for (let i = 0; i < test.length; i++) {
+                        console.log(key)
                         test[i].innerHTML = data[key]
                     }
                 }
+                console.log(data["Balkonkraftwerk"])
+                BK = data["Balkonkraftwerk"]
+                WL = data["Wallbox"]
+                PV = data["Photovoltaikanlage"]
             }
-        })
-        .catch(error => {
-            console.error('Es gab ein Problem mit der Fetch-Operation:', error)
         })
     document.getElementById("englishorspanish").value = localStorage.getItem("language")
     document.documentElement.lang = localStorage.getItem("language")
 
 }
 
-document.getElementById('englishorspanish').addEventListener('change', function() {
+function getTranslation(word) {
+
+    
+    fetch("lang/" + localStorage.getItem("language") + ".json")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Netzwerkantwort war nicht ok')
+            }
+            return response.json()
+        })
+        .then(data => {
+            console.log(data)
+            return data["Anlage"]
+        })
+    
+}
+
+document.getElementById('englishorspanish').addEventListener('change', function () {
     setLanguage(this.value)
 });
 
