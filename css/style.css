@@ -19,6 +19,12 @@ header {
     
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  margin: 0;
+  display: none;
+}
+
 h2 {
     margin: 3px 15px;
     padding: 10px 0;
