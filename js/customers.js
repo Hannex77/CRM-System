@@ -1,5 +1,5 @@
 function findHighestId(jsonString) {
-    console.log(jsonString)
+   
     if (jsonString == null || jsonString == "[]") {
         return 1
     }
@@ -34,6 +34,12 @@ if (currentPage === "kundenuebersicht.html") {
 function renderCustomers() {
     const customersTable = document.getElementById('customersTable').getElementsByTagName('tbody')[0];
     customersTable.innerHTML = '';
+   
+    if (customers.length == 0) {
+        console.log("zuvb")
+        document.getElementById("customerList").style.display = "none"
+        document.getElementById("nocustomers").style.display = "block"
+    }
     customers.forEach((customer, index) => {
         let row = customersTable.insertRow();
         row.insertCell(0).innerText = customer.id;

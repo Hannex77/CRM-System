@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="AlleAufträge">Alle Aufträge</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/alleaufträge.css">
+
     <script src="js/main.js" defer></script>
     <script src="js/dates.js" defer></script>
     <script src="js/lang.js" defer></script>
     <script src="js/menu.js" defer></script>
     <script src="js/customers.js" defer></script>
     <script src="js/orders.js" defer></script>
-    
 </head>
+
 <body>
-    <header>
-        <a href="index.html"><h2 class="Kundenverwaltungssystem">Kundenverwaltungssystem</h2> </a>    
+    <div id="navbar">
+        <a href="index.html">
+            <h2 class="Kundenverwaltungssystem">Kundenverwaltungssystem</h2>
+        </a>
         <button id="button">
             <hr>
             <hr>
@@ -26,13 +31,12 @@
             <li><a class="NeuenKundenregistrieren" href="kundenregistrierung.html">Neuen Kunden registrieren</a></li>
             <li><a class="AlleAufträgeanzeigen" href="alleauftraege.html">Alle Aufträge anzeigen</a></li>
             <li><a><select name="" id="englishorspanish">
-                <option value="de">Deutsch</option>
-                <option value="en">English</option>
-                <option value="es">Español</option>
-            </select></a></li>
+                        <option value="de">Deutsch</option>
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                    </select></a></li>
         </ul>
-        
-    </header>
+    </div>
 
     <section id="allOrdersSection">
         <table id="allOrdersTable">
@@ -40,8 +44,9 @@
                 <tr>
                     <th class="Kundenname">Kundenname</th>
                     <th class="ID">ID</th>
+                    <th class="Anlage">Anlage</th>
                     <th class="Auftragsbeschreibung">Auftragsbeschreibung</th>
-                    <th>Ablauftermin</th>
+                    <th class="Ablauftermin">Ablauftermin</th>
                     <th class="Aktionen">Aktionen</th>
                 </tr>
             </thead>
@@ -50,5 +55,11 @@
             </tbody>
         </table>
     </section>
+    <div id="keinealleaufträge">
+        <h1 class="KeineAuftägeerstelltgehenSiezurKundenübersichtumeinenAuftragzuerstellen">Keine Auftäge erstellt gehen
+            Sie zur Kundenübersicht um einen Auftrag zu erstellen</h1>
+        <a href="kundenuebersicht.html"><button class="Kundenübersicht">Kundenübersicht</button></a>
+    </div>
 </body>
+
 </html>

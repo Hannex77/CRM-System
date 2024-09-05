@@ -4,6 +4,17 @@ function saveData() {
     localStorage.setItem('orders', JSON.stringify(orders));
 }
 
+function test(orderid) {
+    switch (orderid.split('-')[4]) {
+        case "BK":
+            return BK;
+        case "WL":
+            return WL;
+        case "PV":
+            return PV;
+    }
+}
+
 if (currentPage === "auftraege.html") {
     selectedCustomerId = localStorage.getItem('selectedCustomerId');
     let customer = customers[selectedCustomerId];
@@ -22,6 +33,7 @@ if (currentPage === "auftraege.html") {
         // Finde die höchste Auftragsnummer für diesen Kunden
         let maxOrderNumber = 0;
         let customerOrders = orders[customerId] || [];
+
         customerOrders.forEach(order => {
             let idParts = order.id.split('-');
             let orderNumber = parseInt(idParts[idParts.length - 1], 10);
@@ -42,7 +54,6 @@ if (currentPage === "auftraege.html") {
         event.preventDefault();
         let state = document.getElementById('state').value;
         let type = document.getElementById('type').value;
-
         let orderId = generateOrderId(state, type, selectedCustomerId);
 
         let newOrder = {
@@ -55,6 +66,7 @@ if (currentPage === "auftraege.html") {
         if (!orders[selectedCustomerId]) {
             orders[selectedCustomerId] = [];
         }
+
         orders[selectedCustomerId].push(newOrder);
         saveData();
         renderOrders();
@@ -65,27 +77,22 @@ if (currentPage === "auftraege.html") {
     renderAllOrders();
 }
 
-// Funktion zum Rendern der Kundenliste
-function test(orderid) {
-    switch (orderid.split('-')[4]) {
-        case "BK":
-            return BK;
-        case "WL":
-            return WL;
-        case "PV":
-            return PV;
-    }
-}
-
 // Funktion zum Rendern der Aufträge für einen Kunden
 function renderOrders() {
     const ordersTable = document.getElementById('ordersTable').getElementsByTagName('tbody')[0];
     ordersTable.innerHTML = '';
     let customerOrders = orders[selectedCustomerId] || [];
+
+    if (customerOrders.length == 0) {
+        document.getElementById("aufträge").style.display = "none"
+        return 0
+    } else {
+        document.getElementById("aufträge").style.display = "block"
+    }
+
     customerOrders.forEach((order) => {
         let row = ordersTable.insertRow();
         row.insertCell(0).innerText = order.id;
-
         row.insertCell(1).innerText = test(order.id);
         row.insertCell(2).innerText = order.description;
         row.insertCell(3).innerText = getDaysLeft(order);
@@ -97,6 +104,7 @@ function renderOrders() {
         deleteBtn.onclick = () => deleteOrder(order.id);
         actionsCell.appendChild(deleteBtn);
     });
+    updatelang()
 }
 
 // Funktion zum Löschen eines Auftrags
@@ -111,6 +119,18 @@ function deleteOrder(orderId) {
 function renderAllOrders() {
     const allOrdersTable = document.getElementById('allOrdersTable').getElementsByTagName('tbody')[0];
     allOrdersTable.innerHTML = '';
+    var test2 = JSON.parse(localStorage.getItem("orders"))
+
+    let arrayCount = 0
+    for (let key in test2) {
+        if (Array.isArray(test2[key]) && test2[key].length > 0) {
+            arrayCount++;
+        }
+    }
+    if (arrayCount == 0) {
+        document.getElementById("allOrdersSection").style.display = "none"
+        document.getElementById("keinealleaufträge").style.display = "block"
+    }
 
     customers.forEach((customer, customerId) => {
         let customerOrders = orders[customerId] || [];
@@ -118,9 +138,10 @@ function renderAllOrders() {
             let row = allOrdersTable.insertRow();
             row.insertCell(0).innerText = customer.name;
             row.insertCell(1).innerText = order.id;
-            row.insertCell(2).innerText = order.description;
-            row.insertCell(3).innerText = getDaysLeft(order);
-            let actionsCell = row.insertCell(4);
+            row.insertCell(2).innerText = test(order.id);
+            row.insertCell(3).innerText = order.description;
+            row.insertCell(4).innerText = getDaysLeft(order);
+            let actionsCell = row.insertCell(5);
 
             let deleteBtn = document.createElement('button');
             deleteBtn.classList.add("Löschen");
@@ -132,6 +153,7 @@ function renderAllOrders() {
             actionsCell.appendChild(deleteBtn);
         });
     });
+    updatelang()
 }
 
 function removeOrder(orderId) {
@@ -150,10 +172,6 @@ function removeOrder(orderId) {
 
     // Setze die aktualisierten Bestellungen zurück in den localStorage
     localStorage.setItem("orders", JSON.stringify(orders));
-  
+
     location.reload(); // muss bersser gemacht werden ich weiß
 }
-
-// Beispielaufruf der Funktion
-
-

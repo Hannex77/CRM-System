@@ -26,8 +26,12 @@
     "Niedersachsen(NI)": "Lower Saxony (NI)",
     "Nordrhein-Westfalen(NRW)": "North Rhine-Westphalia (NRW)",
     "Photovoltaikanlagen(PV)": "Photovoltaic Systems (PV)",
-    "Telefon": "Phone",
+    "Telefon": "Phone number",
     "Wallbox(WL)": "Wallbox (WL)",
     "Wallbox": "Wallbox",
-    "erstellen": ""
+    "erstellen": "",
+    "KeineKundenregistriert": "No cutomers registered",
+    "KeineAuftägeerstelltgehenSiezurKundenübersichtumeinenAuftragzuerstellen":"No orders created go to the customer overview to create an order",
+    "Ablauftermin":"Expiration date",
+    "AblauftermininTagen":"Expiration date in days"
 }

@@ -1,0 +1,9 @@
+#keinealleaufträge {
+    display: none;
+    margin: 10px;
+    text-align: center;
+}
+
+#keinealleaufträge button {
+    margin: 10px;
+}

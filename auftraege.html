@@ -6,20 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title class="Aufträge">Aufträge</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/aufträge.css">
     <script src="js/main.js" defer></script>
     <script src="js/dates.js" defer></script>
     <script src="js/lang.js" defer></script>
     <script src="js/menu.js" defer></script>
     <script src="js/customers.js" defer></script>
     <script src="js/orders.js" defer></script>
-    
-    
-   
+    <script src="js/coll.js" defer></script>
 </head>
 
 <body>
-
-    <header>
+    <div id="navbar">
         <a href="index.html">
             <h2 class="Kundenverwaltungssystem">Kundenverwaltungssystem</h2>
         </a>
@@ -38,57 +37,62 @@
                         <option value="es">Español</option>
                     </select></a></li>
         </ul>
+    </div>
 
-    </header>
 
     <section id="orderSection">
-        <h1 class="NeuenAufragfür">Neuen Aufrag für</h1>
-        <h1> </h1>
-        <h1 class="customerName"></h1>
-        <h1> </h1>
-        <h1 class="erstellen">erstellen</h1>
-        <form id="orderForm">
+        <button type="button" id="neworder">
+            <p class="NeuenAufragfür">Neuen Aufrag für</p>
+            <p class="customerName"></p>
+            <p class="erstellen">erstellen</p>
+        </button>
+        <div id="newordercontent">
+            <form id="orderForm">
+                <label class="Bundesland" for="state">Bundesland</label>
+                <select id="state" name="state" title="" required>
+                    <option class="Niedersachsen(NI)" value="NI">Niedersachsen (NI)</option>
+                    <option class="Nordrhein-Westfalen(NRW)" value="NRW">Nordrhein-Westfalen (NRW)</option>
+                </select>
 
-            <label class="Bundesland" for="state">Bundesland</label>
-            <select id="state" name="state" title="" required>
-                <option class="Niedersachsen(NI)" value="NI">Niedersachsen (NI)</option>
-                <option class="Nordrhein-Westfalen(NRW)" value="NRW">Nordrhein-Westfalen (NRW)</option>
-            </select>
+                <label class="Anlage" for="type">Anlage</label>
+                <select id="type" name="type" title="" required>
+                    <option class="Balkonkraftwerk(BK)" value="BK">Balkonkraftwerk (BK)</option>
+                    <option class="Wallbox(WL)" value="WL">Wallbox (WL)</option>
+                    <option class="Photovoltaikanlagen(PV)" value="PV">Photovoltaikanlagen (PV)</option>
+                </select>
 
-            <label class="Anlage" for="type">Anlage</label>
-            <select id="type" name="type" title="" required>
-                <option class="Balkonkraftwerk(BK)" value="BK">Balkonkraftwerk (BK)</option>
-                <option class="Wallbox(WL)" value="WL">Wallbox (WL)</option>
-                <option class="Photovoltaikanlagen(PV)" value="PV">Photovoltaikanlagen (PV)</option>
-            </select>
+                <label class="Auftragsbeschreibung" for="orderDescription">Auftragsbeschreibung</label>
+                <input type="text" id="orderDescription" name="orderDescription" title="" required>
 
-            <label class="Auftragsbeschreibung" for="orderDescription">Auftragsbeschreibung</label>
-            <input type="text" id="orderDescription" name="orderDescription" title="" required>
+                <label class="AblauftermininTagen" for="orderDescription">Ablauftermin in Tagen</label>
+                <input value="14" type="number" id="Ablauftermin" class="Ablauftermin" name="Ablauftermin" title=""
+                    required>
 
-            <label class="Ablauftermin" for="orderDescription">Ablauftermin in ... Tagen</label>
-            <input value="14" type="number" id="Ablauftermin" name="Ablauftermin" title=""  required>
-
-            <button class="Auftraghinzufügen" type="submit">Auftrag hinzufügen</button>
-        </form>
-        <h1 class="Aufträgevon">Aufträge von</h1>
-        <h1> </h1>
-        <h1 class="customerName"></h1>
-        <table id="ordersTable">
-            <thead>
-                <tr>
-                    <th class="ID">ID</th>
-                    <th class="Anlage">Anlage</th>
-                    <th class="Auftragsbeschreibung">Auftragsbeschreibung</th>
-                    <th class="">Ablauftermin</th>
-                    <th class="Aktionen">Aktionen</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Aufträge werden hier eingefügt -->
-            </tbody>
-        </table>
+                <button class="Auftraghinzufügen" type="submit">Auftrag hinzufügen</button>
+            </form>
+            <br>
+        </div>
+        <span id="aufträge">
+            <br>
+            <h1 class="Aufträgevon">Aufträge von</h1>
+            <h1> </h1>
+            <h1 class="customerName"></h1>
+            <table id="ordersTable">
+                <thead>
+                    <tr>
+                        <th class="ID">ID</th>
+                        <th class="Anlage">Anlage</th>
+                        <th class="Auftragsbeschreibung">Auftragsbeschreibung</th>
+                        <th class="Ablauftermin">Ablauftermin</th>
+                        <th class="Aktionen">Aktionen</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aufträge werden hier eingefügt -->
+                </tbody>
+            </table>
+        </span>
     </section>
-    
 </body>
 
 </html>

@@ -38,11 +38,9 @@ function updatelang() {
                 if (data.hasOwnProperty(key)) {
                     var test = document.getElementsByClassName(key)
                     for (let i = 0; i < test.length; i++) {
-                        console.log(key)
                         test[i].innerHTML = data[key]
                     }
                 }
-                console.log(data["Balkonkraftwerk"])
                 BK = data["Balkonkraftwerk"]
                 WL = data["Wallbox"]
                 PV = data["Photovoltaikanlage"]
@@ -64,7 +62,6 @@ function getTranslation(word) {
             return response.json()
         })
         .then(data => {
-            console.log(data)
             return data["Anlage"]
         })
     

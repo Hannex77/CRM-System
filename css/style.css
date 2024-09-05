@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f9f9f9;
+    overflow-y: hidden;
 }
 
 * {
@@ -10,19 +11,31 @@ body {
     margin: 0;
 }
 
-header {
+table {
+
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(239, 239, 239);
+}
+
+#navbar {
     display: block;
     background-color: #333;
     color: white;
     width: 100vw;
     padding: 0px;
-    
+
 }
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  margin: 0;
-  display: none;
+    margin: 0;
+    display: none;
 }
 
 h2 {
@@ -45,8 +58,9 @@ button {
     background-color: red;
 }
 
-input {
-    height: 20px;
+input,
+select {
+    height: 22px;
     border-radius: 10px;
     border: solid;
     border-color: black;
@@ -62,7 +76,7 @@ table button {
     margin: 0 3px;
 }
 
-header button {
+#navbar button {
     float: right;
     margin: 10px 7px;
 }
@@ -87,6 +101,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 10px;
+    display: block;
 }
 
 th,
@@ -97,7 +112,8 @@ td {
 }
 
 th {
-    background-color: #f4f4f4;
+    background-color: rgb(239, 239, 239);
+    width: 25%;
 }
 
 form {
@@ -110,8 +126,13 @@ input {
     margin: 10px 0;
 }
 
-#orderDescription {
-    margin-top: 0;
+#orderDescription,
+#Ablauftermin {
+    margin: 0;
+}
+
+.Auftraghinzufügen {
+    margin-top: 10px;
 }
 
 li a {
@@ -136,12 +157,13 @@ li a:hover {
 }
 
 #links {
-    transition: max-height 1s;
+    transition: max-height 0.7s;
     max-height: 0;
-    
 }
 
-
+#navbar h2 {
+    max-width: 70%;
+}
 
 hr {
     border-radius: 10px;
