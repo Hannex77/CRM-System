@@ -156,6 +156,7 @@ li a:hover {
 }
 
 #links {
+    width: 100vw;
     transition: max-height 0.7s;
     max-height: 0;
 }
