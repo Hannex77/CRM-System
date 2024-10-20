@@ -1,5 +1,5 @@
-links = document.getElementById("links")
-button = document.getElementById("button")
+const links = document.getElementById("links")
+const button = document.getElementById("button")
 var menu_open = false
 
 button.addEventListener("click", function () {

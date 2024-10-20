@@ -4,7 +4,7 @@ function saveData() {
     localStorage.setItem('orders', JSON.stringify(orders));
 }
 
-function test(orderid) {
+function getAbbr(orderid) {
     switch (orderid.split('-')[4]) {
         case "BK":
             return BK;
@@ -93,7 +93,7 @@ function renderOrders() {
     customerOrders.forEach((order) => {
         let row = ordersTable.insertRow();
         row.insertCell(0).innerText = order.id;
-        row.insertCell(1).innerText = test(order.id);
+        row.insertCell(1).innerText = getAbbr(order.id);
         row.insertCell(2).innerText = order.description;
         row.insertCell(3).innerText = getDaysLeft(order);
         let actionsCell = row.insertCell(4);
@@ -118,7 +118,7 @@ function deleteOrder(orderId) {
 // Funktion zum Rendern aller Aufträge
 function renderAllOrders() {
     const allOrdersTable = document.getElementById('allOrdersTable').getElementsByTagName('tbody')[0];
-    allOrdersTable.innerHTML = '';
+    allOrdersTable.innerHTML = "";
     var test2 = JSON.parse(localStorage.getItem("orders"))
 
     let arrayCount = 0
@@ -138,7 +138,7 @@ function renderAllOrders() {
             let row = allOrdersTable.insertRow();
             row.insertCell(0).innerText = customer.name;
             row.insertCell(1).innerText = order.id;
-            row.insertCell(2).innerText = test(order.id);
+            row.insertCell(2).innerText = getAbbr(order.id);
             row.insertCell(3).innerText = order.description;
             row.insertCell(4).innerText = getDaysLeft(order);
             let actionsCell = row.insertCell(5);
