@@ -22,6 +22,8 @@ if (currentPage === "kundenuebersicht.html") {
         let newCustomer = {
             id: findHighestId(localStorage.getItem("customers")),
             name: event.target.name.value,
+            lastname: event.target.lastname.value,
+            birthday: event.target.birthday.value,
             email: event.target.email.value,
             phone: event.target.phone.value
         };
@@ -44,9 +46,11 @@ function renderCustomers() {
         let row = customersTable.insertRow();
         row.insertCell(0).innerText = customer.id;
         row.insertCell(1).innerText = customer.name;
-        row.insertCell(2).innerText = customer.email;
-        row.insertCell(3).innerText = customer.phone;
-        let actionsCell = row.insertCell(4);
+        row.insertCell(2).innerText = customer.lastname;
+        row.insertCell(3).innerText = new Date(customer.birthday).toLocaleDateString();
+        row.insertCell(4).innerText = customer.email;
+        row.insertCell(5).innerText = customer.phone;
+        let actionsCell = row.insertCell(6);
 
         let viewOrdersBtn = document.createElement('button');
         viewOrdersBtn.classList.add("Aufträgeanzeigen")

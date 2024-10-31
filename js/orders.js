@@ -59,6 +59,10 @@ if (currentPage === "auftraege.html") {
         let newOrder = {
             id: orderId,
             description: event.target.orderDescription.value,
+            street: event.target.Straße.value,
+            number: event.target.Hausnummer.value,
+            city: event.target.Stadt.value,
+            zipcode: event.target.Postleitzahl.value,
             date: new Date(),
             ablauftermin: document.getElementById('Ablauftermin').value
         };
@@ -95,8 +99,12 @@ function renderOrders() {
         row.insertCell(0).innerText = order.id;
         row.insertCell(1).innerText = getAbbr(order.id);
         row.insertCell(2).innerText = order.description;
-        row.insertCell(3).innerText = getDaysLeft(order);
-        let actionsCell = row.insertCell(4);
+        row.insertCell(3).innerText = order.street;
+        row.insertCell(4).innerText = order.number;
+        row.insertCell(5).innerText = order.city;
+        row.insertCell(6).innerText = order.zipcode;
+        row.insertCell(7).innerText = getDaysLeft(order);
+        let actionsCell = row.insertCell(8);
 
         let deleteBtn = document.createElement('button');
         deleteBtn.classList.add("Löschen");
